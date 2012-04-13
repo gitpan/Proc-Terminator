@@ -32,7 +32,6 @@
       },
       "runtime" : {
          "requires" : {
-            "Class::Struct" : 0,
             "POSIX" : 0,
             "Test::More" : 0,
             "Time::HiRes" : 0
@@ -40,5 +39,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.02"
+   "version" : "0.03"
 }
