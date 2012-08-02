@@ -83,13 +83,13 @@ has procs => (
     default => sub { { } },
 );
 
-has grace_period => ( is => 'rw', default => 0.75);
-has max_wait => ( is => 'rw', default => 10);
-has interval => (is => 'rw', default => 0.25);
+has grace_period => ( is => 'rw', default => sub { 0.75 });
+has max_wait => ( is => 'rw', default => sub  { 10 });
+has interval => (is => 'rw', default => sub { 0.25 });
 has badprocs => (is => 'rw',
                  isa => sub { ref $_[0] eq 'ARRAY' or die "Expected arrayref!" },
                  default => sub {  [ ] } );
-has begin_time => (is => 'rw', default => 0);
+has begin_time => (is => 'rw', default => sub { 0 });
 
 sub with_pids {
     my ($cls,$pids,%options) = @_;
@@ -188,7 +188,7 @@ use Time::HiRes qw(time sleep);
 use POSIX qw(:signal_h :sys_wait_h :errno_h);
 use base qw(Exporter);
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 our @DefaultSignalOrder = (
     SIGINT,
